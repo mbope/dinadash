@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.mygdx.dinodash.config.GameConfig;
@@ -12,6 +13,7 @@ import com.mygdx.dinodash.util.GdxUtils;
 
 public abstract class BaseScreen implements Screen, InputProcessor {
     protected Game game;
+    protected AssetManager assetManager;
     protected Stage mainStage;
     protected Stage uiStage;
 
@@ -21,6 +23,7 @@ public abstract class BaseScreen implements Screen, InputProcessor {
 
     public BaseScreen(Game game){
         this.game = game;
+        assetManager = new AssetManager();
         mainStage = new Stage(new FitViewport(viewWidth, viewHeight));
         uiStage = new Stage(new FitViewport(viewWidth, viewHeight));
 
