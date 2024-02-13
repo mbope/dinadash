@@ -39,6 +39,11 @@ public class GameScreen extends BaseScreen{
         super(game);
         Image map = new Image(new Texture("imgs/startbg.png"));
         uiStage.addActor(map);
+        obstacle = new BaseActor();
+        //obstacle.setTextture(new Texture(Gdx.files.internal("")));
+        dino = new DinoActor();
+        dino.setTextture(new Texture("imgs/dino.jpeg"));
+        uiStage.addActor(dino);
         camera = (OrthographicCamera) uiStage.getViewport().getCamera();
         camera.translate(startX, startY);
         counter = 0;
@@ -47,8 +52,7 @@ public class GameScreen extends BaseScreen{
     @Override
     public void create() {
         timeElapsed = 0;
-        obstacle = new BaseActor();
-        //obstacle.setTextture(new Texture(Gdx.files.internal("")));
+
         long secondFromStart = System.currentTimeMillis() - startTime;
         percent = (secondFromStart%animation_duration/animation_duration);
         percent = (float) Math.cos(percent*Math.PI)/ 2+0.5f;
